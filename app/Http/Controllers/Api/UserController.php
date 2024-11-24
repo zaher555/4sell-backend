@@ -29,7 +29,7 @@ class UserController extends Controller
                 'email'=>$validatedDate['email'],
                 'username'=>$validatedDate['username'],
                 'phone'=>$validatedDate['phone'],
-                'password'=>$validatedDate['password'],
+                'password'=>bcrypt($validatedDate['password']),
                 'img'=>$validatedDate['img']
             ]);
             return response('user created successfully',200);
