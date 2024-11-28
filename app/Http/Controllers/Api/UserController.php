@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Http\Requests\UserRegisterRequest;
 
 class UserController extends Controller
@@ -12,12 +13,12 @@ class UserController extends Controller
     public function index()
     {
         $users=User::all();
-        return $users;
+        return UserResource::collection($users);
     }
     public function show($id)
     {
         $user=User::find($id);
-        return $user;
+        return new UserResource($user);
     }
     public function register(UserRegisterRequest $validatedDate)
     {

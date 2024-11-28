@@ -6,18 +6,19 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Resources\CategoryResource;
 
 class categoryController extends Controller
 {
     public function allCategories()
     {
         $categories=Category::all();
-        return $categories;
+        return CategoryResource::collection($categories);
     }
     public function oneCategory($id)
     {
         $category=Category::find($id);
-        return $category;
+        return new CategoryResource($category);
     }
     public function storeCategory(CategoryRequest $validatedData)
     {

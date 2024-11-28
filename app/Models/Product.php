@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory;
+    protected $table='product';
     protected $fiilable=[
         'user_id',
         'category_id',

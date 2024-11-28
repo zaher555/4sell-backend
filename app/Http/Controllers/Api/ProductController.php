@@ -6,18 +6,19 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
     public function allProducts()
     {
         $products=Product::all();
-        return $products;
+        return ProductResource::collection($products);
     }
     public function oneProduct($id)
     {
         $product=Product::find($id);
-        return $product;
+        return new ProductResource($product);
     }
     public function storeProduct(ProductRequest $validatedData)
     {
