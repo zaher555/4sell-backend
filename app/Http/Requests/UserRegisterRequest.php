@@ -22,8 +22,7 @@ class UserRegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstName'=>'required',
-            'lastName'=>'required',
+            'name'=>'required',
             'email'=>'required|email',
             'username'=>'required',
             'password'=>'required',
@@ -33,8 +32,7 @@ class UserRegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'firstName.required'=>'first name is required',
-            'lastName.required'=>'last name is required',
+            'name.required'=>'last name is required',
             'email.required'=>'email is required',
             'email.email'=>'email is invalid',
             'username.required'=>'user is required',

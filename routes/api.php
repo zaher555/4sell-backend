@@ -14,7 +14,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 //user routes
-Route::get('users',[UserController::class,'index']);
+Route::get('admins',[UserController::class,'allAdmins']); //users with role admin
+Route::get('users',[UserController::class,'allUsers']); //users with role user
 Route::get('user/{id}',[UserController::class,'show']);
 Route::post('user/register',[UserController::class,'register']);
 Route::put('user/update/{id}',[UserController::class,'updateUser']);

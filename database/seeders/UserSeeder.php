@@ -22,5 +22,14 @@ class UserSeeder extends Seeder
            'role'=>'admin',
            'img'=>'img1' 
         ]);
+        User::create([
+            'name'=>'ahmed ali',
+            'email'=>'ahmed@gmail.com',
+            'username'=>'ahmed123',
+            'password'=>'ahmed123',
+            'phone'=>'01033306583',
+            'role'=>'user',
+            'img'=>'img2' 
+         ]);
     }
 }
